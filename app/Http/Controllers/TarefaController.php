@@ -13,7 +13,15 @@ class TarefaController extends Controller
     // }
     public function index()
     {
-        return "chegamos aqui!";
+        if(auth()->check()){
+            $id = auth()->user()->id;
+            $nome = auth()->user()->name;
+
+            return "chegamos aqui legal $nome com id : $id!";
+        }else{
+            return "deu ruim";
+        }
+
     }
 
     /**

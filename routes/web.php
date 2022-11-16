@@ -20,6 +20,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::resource('tarefa', TarefaController::class)->middleware('auth');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::resource('tarefa', TarefaController::class)->middleware('auth');
+Route::resource('tarefa', TarefaController::class);
 
