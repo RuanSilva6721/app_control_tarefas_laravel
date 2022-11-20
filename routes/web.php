@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\TarefaController;
+
+use App\Mail\MessagemTesteMail;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,4 +26,10 @@ Auth::routes();
 // Route::resource('tarefa', TarefaController::class)->middleware('auth');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('tarefa', TarefaController::class);
+
+Route::get('messagem-teste', function(){
+    //return new MessagemTesteMail();
+    Mail::to('felipesilva40026922@gmail.com')->send( new MessagemTesteMail);
+    return 'E-mail enviado com sucesso!';
+});
 
